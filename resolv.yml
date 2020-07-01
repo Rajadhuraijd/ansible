@@ -1,0 +1,7 @@
+---
+
+- name: set dns resolv.conf 
+  lineinfile:
+     path: /etc/resolv.conf
+     line: nameserver 8.8.8.8
+     create: yes
