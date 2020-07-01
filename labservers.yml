@@ -1,0 +1,10 @@
+---
+
+- name: apply common configuration
+  hosts: lab
+  user: admin
+  become: yes
+  become_method: sudo
+
+  roles:
+    - common

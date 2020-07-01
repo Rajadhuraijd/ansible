@@ -1,0 +1,6 @@
+---
+
+ntpserver: 192.168.122.101
+dnsserver1: 8.8.8.8
+dnsserver2: 8.8.4.4
+# vars file for common

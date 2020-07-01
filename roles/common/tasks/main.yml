@@ -1,0 +1,29 @@
+---
+
+- name: set dns resolv.conf 
+  template:
+     src: resolv.conf.js2
+     dest: /etc/resolv.conf
+  tags: dns
+
+
+- name: Check chrony(NTP)  installed
+  yum: name=chrony state=present
+  tags: chrony
+
+- name: Make sure chrony configured
+  template: 
+     src: chrony.conf.js2
+     dest: /etc/chrony.conf
+  notify: 
+    - restart chrony
+  tags: chrony
+
+- name: be sure chronyd is running and enabled
+  service:
+     name: chronyd
+     state: started
+     enabled: yes
+  tags: chrony
+
+# tasks file for common
