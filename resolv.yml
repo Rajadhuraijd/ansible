@@ -1,7 +1,13 @@
 ---
+- name: apply common configuration
+  hosts: lab
+  user: admin
+  become: yes
+  become_method: sudo
 
-- name: set dns resolv.conf 
-  lineinfile:
-     path: /etc/resolv.conf
-     line: nameserver 8.8.8.8
-     create: yes
+  tasks:
+  - name: set dns resolv.conf 
+    lineinfile:
+      path: /etc/resolv.conf
+      line: nameserver 8.8.8.8
+      create: yes
